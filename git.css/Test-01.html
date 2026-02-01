@@ -3,9 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Acme Consulting — Strategic business solutions, digital transformation, and growth services for small and medium enterprises.">
+    <title>Acme Consulting — Business Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-    
+    <header>
+        <div class="container">
+            <nav>
+                <div class="brand">
+                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                        <rect width="24" height="24" rx="6" fill="#0b5fff"/>
+                        <path d="M6 13c1.5-3 6-4 11-5" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Acme Consulting
+                </div>
+                <div class="nav-links">
+                    <a href="#services">Services</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                    <a class="cta" href="#contact">Get a Quote</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div>
+                <h1>Strategic solutions that accelerate your growth</h1>
+                <p>We help businesses design scalable strategies, streamline operations, and deliver measurable results using data-driven methods.</p>
+                <div class="cta-row">
+                    <button class="glass" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request Proposal</button>
+                    <button class="glass secondary" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Learn More</button>
+                </div>
+                <div class="card" style="margin-top:18px">
+                    <strong>Working with Acme</strong>
+                    <p style="margin:6px 0 0;color:var(--muted)">Delivery teams, flexible engagement models, and transparent reporting.</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3 style="margin-top:0">Free 30‑min Business Assessment</h3>
+                <p style="color:var(--muted);margin:6px 0 14px">Tell us your goals and we'll recommend a focused plan.</p>
+                <form onsubmit="event.preventDefault(); alert('Thanks — we\'ll be in touch!')">
+                    <input type="text" placeholder="Company name" required>
+                    <input type="email" placeholder="Email" required>
+                    <button class="glass" type="submit">Book Assessment</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2 style="margin-top:28px">Our Services</h2>
+            <div class="services">
+                <div class="service">
+                    <h4>Business Strategy</h4>
+                    <p style="color:var(--muted);font-size:0.95rem">Market analysis, growth planning, and execution roadmaps tailored to your goals.</p>
+                </div>
+                <div class="service">
+                    <h4>Digital Transformation</h4>
+                    <p style="color:var(--muted);font-size:0.95rem">Systems modernization, automation, and data platforms for smarter decisions.</p>
+                </div>
+                <div class="service">
+                    <h4>Operations & Scaling</h4>
+                    <p style="color:var(--muted);font-size:0.95rem">Process optimization, team coaching, and KPIs that drive performance.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="card">
+                <h3 style="margin-top:0">About Acme</h3>
+                <p style="color:var(--muted);">We combine consulting expertise with practical delivery — helping companies translate ideas into outcomes. Our team includes strategists, engineers, and industry experts focused on measurable impact.</p>
+                <ul style="margin:12px 0 0;color:var(--muted)">
+                    <li>100+ projects delivered</li>
+                    <li>Trusted by startups & mid-size firms</li>
+                    <li>Average client ROI within 12 months</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 style="margin-top:0">Why choose us?</h3>
+                <p style="color:var(--muted)">Clear communication, data-driven recommendations, and a collaborative approach to execution.</p>
+                <p style="margin:8px 0 0"><strong>Engagements:</strong> Workshops, short-term advisory, or full delivery partnerships.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contact</h2>
+            <div class="card">
+                <form onsubmit="submitContact(event)">
+                    <input id="name" type="text" placeholder="Full name" required>
+                    <input id="email" type="email" placeholder="Email address" required>
+                    <input id="company" type="text" placeholder="Company (optional)">
+                    <textarea id="message" rows="5" placeholder="How can we help?" required></textarea>
+                    <button class="glass" type="submit">Send message</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+                <div>© <strong>Acme Consulting</strong> — Trusted business partners</div>
+                <div style="color:var(--muted)">Email: <a href="mailto:hello@acme.example">hello@acme.example</a> · Phone: <a href="tel:+1234567890">+1 (234) 567‑890</a></div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        function submitContact(e){
+            e.preventDefault();
+            const n=document.getElementById('name').value;
+            alert('Thanks, '+ (n||'there') +'. We received your message.');
+            e.target.reset();
+        }
+        (function(){
+            // Add the reveal class to relevant elements immediately so CSS can hide them until visible
+            const selectors = ['header > .container','main .hero > div','main .hero .card','main #services .service','main #about .card','main #contact .card','footer'];
+            const items = [];
+            selectors.forEach(s => document.querySelectorAll(s).forEach(el => { el.classList.add('reveal'); items.push(el); }));
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting){
+                        entry.target.classList.add('visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            },{threshold:0.12});
+            items.forEach(i => io.observe(i));
+        })();
+    </script>
 </body>
 </html>
