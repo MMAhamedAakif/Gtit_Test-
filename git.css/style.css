@@ -38,6 +38,13 @@
         .contact{margin-top:42px}
         form{display:grid;gap:14px}
         input,textarea{padding:14px;border:1px solid #e6eef8;border-radius:10px;font-size:1rem;outline:none;background:linear-gradient(180deg,#fff,#fafcff)}
+        /* Placeholder styling: visible only when empty; hide placeholder when the field is focused (before typing) */
+        ::placeholder{color:rgba(107,114,128,.9);transition:color .12s ease}
+        input:focus::placeholder, textarea:focus::placeholder{color:transparent}
+        /* Vendor fallbacks */
+        input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder{color:transparent}
+        input:focus::-moz-placeholder, textarea:focus::-moz-placeholder{color:transparent}
+        input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{color:transparent}
         input:focus,textarea:focus{border-color:var(--accent);box-shadow:0 8px 24px rgba(11,95,255,.08)}
         footer{padding:36px 0;margin-top:44px;color:var(--muted);font-size:0.95rem}
         section{padding-top:10px;padding-bottom:10px}
