@@ -8,4 +8,4 @@ let postsElement = document.getElementById("api-output");
             postDiv.innerHTML = `<h3>${post.title}</h3><p>${post.body}</p><hr>`;
             postsElement.appendChild(postDiv);
         });
-     });
+     });    
