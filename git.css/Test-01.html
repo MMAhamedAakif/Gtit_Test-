@@ -140,7 +140,7 @@
             e.target.reset();
         }
         (function(){
-            // Add the reveal levant elements immediately so CSS can hide them until visible
+            // Add the reveal  elements immediately so CSS can hide them until visible
             const selectors = ['header > .container','main .hero > div','main .hero .card','main #services .service','main #about .card','main #contact .card','footer'];
             const items = [];
             selectors.forEach(s => document.querySelectorAll(s).forEach(el => { el.classList.add('reveal'); items.push(el); }));
