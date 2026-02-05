@@ -163,6 +163,18 @@
             items.forEach(i => io.observe(i));
         })();
     </script>
+
+
+ <script>
+  document.getElementById("scrollUp").onclick = () => {
+    window.scrollBy({ top: -300, behavior: "smooth" });
+  };
+
+  document.getElementById("scrollDown").onclick = () => {
+    window.scrollBy({ top: 300, behavior: "smooth" });
+  };
+</script> 
+
     <script src="nextSection.js"></script>
 </body>
 </html>
