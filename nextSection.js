@@ -1,12 +1,3 @@
-{/* <script>
-  document.getElementById("scrollUp").onclick = () => {
-    window.scrollBy({ top: -300, behavior: "smooth" });
-  };
-
-  document.getElementById("scrollDown").onclick = () => {
-    window.scrollBy({ top: 300, behavior: "smooth" });
-  };
-</script> */}
 
 
 // Scroll Up button scrolls to previous section or up by 300px
