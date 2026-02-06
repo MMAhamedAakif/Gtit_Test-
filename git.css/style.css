@@ -1,3 +1,22 @@
+        /* Floating Icon Animations */
+        #customer-service-float {
+          transition: transform 0.3s cubic-bezier(.2,.9,.25,1), box-shadow 0.3s;
+        }
+        #customer-service-float:hover {
+          transform: scale(1.13) rotate(-8deg);
+          box-shadow: 0 6px 24px #0b5fff55;
+        }
+        #customer-service-float.animate {
+          animation: float-wiggle 1s cubic-bezier(.2,.9,.25,1);
+        }
+        @keyframes float-wiggle {
+          0% { transform: scale(1) rotate(0deg); }
+          20% { transform: scale(1.08) rotate(-8deg); }
+          40% { transform: scale(1.13) rotate(8deg); }
+          60% { transform: scale(1.08) rotate(-8deg); }
+          80% { transform: scale(1.05) rotate(4deg); }
+          100% { transform: scale(1) rotate(0deg); }
+        }
         :root{
             --bg:#f7f9fb;
             --card:#ffffff;
