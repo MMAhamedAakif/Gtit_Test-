@@ -1,6 +1,6 @@
         /* Floating Icon Animations */
         #customer-service-float {
-          transition: transform 0.3s cubic-bezier(.2,.9,.25,1), box-shadow 0.3s;
+          transition: transform 0.8s cubic-bezier(.2,.9,.25,1), box-shadow 0.8s;
         }
         #customer-service-float:hover {
           transform: scale(1.13) rotate(-8deg);
