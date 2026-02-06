@@ -181,6 +181,19 @@
   };
 </script> 
 
-    <script src="nextSection.js"></script>
+        <script>
+            // Floating icon periodic animation
+            const floatIcon = document.getElementById('customer-service-float');
+            function triggerFloatAnimation() {
+                floatIcon.classList.remove('animate');
+                // Force reflow to restart animation
+                void floatIcon.offsetWidth;
+                floatIcon.classList.add('animate');
+            }
+            setInterval(triggerFloatAnimation, 15000);
+            // Optional: trigger once on load
+            setTimeout(triggerFloatAnimation, 1000);
+        </script>
+        <script src="nextSection.js"></script>
 </body>
 </html>
