@@ -39,7 +39,35 @@
         .brand:hover svg{transform:rotate(-8deg) scale(1.03)}
         .nav-links{display:flex;gap:18px}
         .nav-links a{color:var(--muted);text-decoration:none;padding:10px;border-radius:10px;transition:all .18s ease}
-        .nav-links a:hover{color:var(--accent);transform:translateY(-3px);box-shadow:0 6px 20px rgba(11,95,255,.06)}
+        .nav-links a {
+          color: var(--muted);
+          text-decoration: none;
+          padding: 10px;
+          border-radius: 10px;
+          transition: all .18s ease;
+          position: relative;
+          overflow: hidden;
+        }
+        .nav-links a::after {
+          content: "";
+          display: block;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: 2px;
+          width: 0;
+          background: var(--accent);
+          border-radius: 2px;
+          transition: width 0.7s cubic-bezier(.2,.9,.25,1);
+        }
+        .nav-links a:hover {
+          color: var(--accent);
+          transform: translateY(-3px);
+          box-shadow: 0 6px 20px rgba(11,95,255,.06);
+        }
+        .nav-links a:hover::after {
+          width: 100%;
+        }
         .nav-links a.cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:8px 14px;box-shadow:0 10px 30px rgba(11,95,255,.12)}
         .hero{display:grid;grid-template-columns:1fr 460px;gap:var(--gap-lg);padding:56px 0;align-items:center}
         .hero h1{font-size:2.4rem;margin:0 0 14px;letter-spacing:-0.5px}
